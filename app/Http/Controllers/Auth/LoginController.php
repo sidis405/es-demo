@@ -36,4 +36,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // public function username()
+    // {
+    //     return 'email';
+    // }
+
+    // protected function credentials(Request $request)
+    // {
+    //     return $request->only($this->username(), 'password');
+    // }
+
+    // protected function authenticated(Request $request, $user)
+    // {
+    //     $user->update(['ultimo_accesso' => now()]);
+    // }
 }

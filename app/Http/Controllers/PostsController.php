@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\PostRepo;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -12,9 +13,17 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PostRepo $repo)
     {
-        //
+        $posts = $repo->getAllFiltered(
+            [
+                'category_id' => $request->filteredCategories
+                'user_id' => $request->filteredUsers
+            ],
+            [
+                'tags' => $request->filteredPivots
+            ]
+        );
     }
 
     /**

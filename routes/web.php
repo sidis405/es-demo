@@ -1,6 +1,10 @@
 <?php
 
+// use App\User;
 
+// $email = 'forge405@gmail.com';
+
+// auth()->login(User::whereEmail($email)->firstOrFail());
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,3 +62,7 @@ Route::get('/', function () {
 //         return $this->belognsToMany(Calciatore::class, 'calciatore_squadra'); //calciatore_id, squadra_id
 //     }
 // }
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
